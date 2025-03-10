@@ -1,7 +1,7 @@
 import { Environment } from '@abp/ng.core';
 
 // Use your EC2 Public IP or domain
-const baseUrl = 'http://35.89.28.31';
+const baseUrl = 'http://34.222.138.189';
 
 export const environment = {
   production: true,
@@ -11,7 +11,7 @@ export const environment = {
     logoUrl: '',
   },
   oAuthConfig: {
-    issuer: 'http://35.89.28.31/', // Change this to your backend API URL
+    issuer: 'http://34.222.138.189/', // Change this to your backend API URL
     redirectUri: baseUrl,
     clientId: 'BookStore_App',
     responseType: 'code',
@@ -20,7 +20,7 @@ export const environment = {
   },
   apis: {
     default: {
-      url: 'http://35.89.28.31', // Update this to match your API server
+      url: 'http://34.222.138.189', // Update this to match your API server
       rootNamespace: 'Acme.BookStore',
     },
   },
