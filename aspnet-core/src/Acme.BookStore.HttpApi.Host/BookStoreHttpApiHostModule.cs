@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -53,12 +53,12 @@ public class BookStoreHttpApiHostModule : AbpModule
                 options.UseAspNetCore()
                        .EnableTokenEndpointPassthrough();
 
-                options.SetIssuer("http://https://34.222.138.189/:5000"); // Change to your public IP and port
+                // ✅ Allow HTTP by setting the issuer manually
+                options.SetIssuer("http://your-public-ip:5000");
             });
 
             builder.AddValidation(options =>
             {
-                options.AddAudiences("BookStore");
                 options.UseLocalServer();
                 options.UseAspNetCore();
             });
@@ -163,7 +163,7 @@ public class BookStoreHttpApiHostModule : AbpModule
         context.Services.AddCors(options =>
         {
             options.AddDefaultPolicy(builder =>
-               {
+            {
                 builder
                     .WithOrigins(
                         configuration["App:CorsOrigins"]
