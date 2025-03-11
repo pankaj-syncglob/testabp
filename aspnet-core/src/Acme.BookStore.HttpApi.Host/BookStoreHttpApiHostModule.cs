@@ -48,17 +48,9 @@ public class BookStoreHttpApiHostModule : AbpModule
     {
         PreConfigure<OpenIddictBuilder>(builder =>
         {
-            builder.AddServer(options =>
-            {
-                options.UseAspNetCore()
-                       .EnableTokenEndpointPassthrough();
-
-                // ✅ Allow HTTP by setting the issuer manually
-                options.SetIssuer("http://34.222.138.189");
-            });
-
             builder.AddValidation(options =>
             {
+                options.AddAudiences("BookStore");
                 options.UseLocalServer();
                 options.UseAspNetCore();
             });
@@ -163,7 +155,7 @@ public class BookStoreHttpApiHostModule : AbpModule
         context.Services.AddCors(options =>
         {
             options.AddDefaultPolicy(builder =>
-            {
+               {
                 builder
                     .WithOrigins(
                         configuration["App:CorsOrigins"]
