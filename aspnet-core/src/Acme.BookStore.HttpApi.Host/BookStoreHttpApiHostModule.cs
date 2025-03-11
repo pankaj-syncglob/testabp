@@ -207,7 +207,7 @@ public class BookStoreHttpApiHostModule : AbpModule
         app.UseSwagger();
         app.UseAbpSwaggerUI(c =>
         {
-            c.SwaggerEndpoint("/api/swagger/v1/swagger.json", "BookStore API");
+            c.SwaggerEndpoint("/swagger/v1/swagger.json", "BookStore API");
 
             var configuration = context.ServiceProvider.GetRequiredService<IConfiguration>();
             c.OAuthClientId(configuration["AuthServer:SwaggerClientId"]);
