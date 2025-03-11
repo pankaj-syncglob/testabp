@@ -54,7 +54,7 @@ public class BookStoreHttpApiHostModule : AbpModule
                        .EnableTokenEndpointPassthrough();
 
                 // ✅ Allow HTTP by setting the issuer manually
-                options.SetIssuer("http://your-public-ip:5000");
+                options.SetIssuer("http://34.222.138.189");
             });
 
             builder.AddValidation(options =>
