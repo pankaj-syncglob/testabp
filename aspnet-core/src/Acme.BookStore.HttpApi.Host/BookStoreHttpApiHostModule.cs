@@ -48,6 +48,14 @@ public class BookStoreHttpApiHostModule : AbpModule
     {
         PreConfigure<OpenIddictBuilder>(builder =>
         {
+            builder.AddServer(options =>
+            {
+                options.UseAspNetCore()
+                       .EnableTokenEndpointPassthrough();
+
+                options.SetIssuer("http://https://34.222.138.189/:5000"); // Change to your public IP and port
+            });
+
             builder.AddValidation(options =>
             {
                 options.AddAudiences("BookStore");
